@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        text-align: center;
+        color: #ffff;     
+        text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+        0 0 0.2em #87F
+    }
+
+    .container{
+        width: 100vw;
+        height: 100vh;
+        background-image: url(https://t5z6q4c2.rocketcdn.me/wp-content/uploads/2020/04/o-que-e-temperatura-conceito-tipos-de-medicao-e-escalas.jpg.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .corpo{
+        background-color: rgba(0, 0, 0, 0.329);
+        font-family: 'Roboto', sans-serif;
+        padding: 50px;
+        border-radius: 10px;
+        width: 30%;
+    }
+    .titulo{
+        font-size: 40px;
+    }
+    input{
+        border-radius: 10px;
+        border: none;
+        margin: auto;
+        width: 90%;
+        padding: 10px;
+        margin-top: 4px;
+    }
+
+    button{
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 40px;
+        border: none;
+
+    }
+    .btn{
+        transition: .8s;
+        cursor: pointer;
+    }
+    .btn:hover {
+        text-decoration: none;
+    }
+    .btn-efeito {
+        overflow:hidden;
+        position:relative;
+        background-color:#fff; 
+    }
+    .btn-efeito:hover {
+        background-color:#0073d9; 
+        color: #fff;
+    }
+    .btn-efeito span {
+        z-index: 20;
+    }
+    .btn-efeito:after {
+        background: #fff;
+        content: "";
+        height: 155px;
+        left: -85px;
+        opacity:.4;
+        position: absolute;
+        top: -60px;
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg);
+        -webkit-transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+        transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+        width: 70px;
+        z-index:1;
+    }
+    .btn-efeito:hover:after {
+        left: 130%;
+        -webkit-transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+        transition: all 850ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+
+
+
+
+    @media screen and (max-width: 767px) {
+        .corpo{
+            width: calc(100% - 50px);
+            padding: 10px;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <section class="corpo">
+            <h1 class="titulo">Conversor de temperatura</h1>
+
+            <datalist id="temp">
+                <select>
+                    <option  value="Celsius > Fahrenheit"></option>
+                    <option  value="Fahrenheit > Celsius"></option>
+                </select>
+            </datalist>
+
+            <input id="valor" placeholder="Escala de Temperatura" type="text" list="temp">
+
+            <input id="numero" placeholder="Temperatura g°" type="number">
+
+            <button class="btn btn-efeito" id="enviar">Converter</button>
+
+
+            <h1 id="resultado"></h1>
+        </section>
+    </div>
+</body>
+<script src="/script.js"></script>
+</html>
